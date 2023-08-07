@@ -2,12 +2,11 @@
 
 import {signIn} from "next-auth/react";
 
-const LoginButton = () => (
+const LoginButton = ({ providerId }: { providerId?: string }) => (
   <button
     className="m-4 cursor-pointer"
     onClick={async () => {
-      console.log('login button clicked');
-      await signIn();
+      await signIn(providerId);
     }}
   >
     Login
