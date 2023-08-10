@@ -1,6 +1,6 @@
 import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type {Metadata} from 'next'
+import {Inter} from 'next/font/google'
 import clsx from "clsx";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/config/auth";
@@ -25,10 +25,13 @@ export default async function RootLayout({
       <body className={clsx('w-screen min-h-screen', inter.className)}>
         <header className={clsx(
           "sticky top-0 h-[48px]",
-          "flex justify-end items-center",
+          "flex justify-between items-center",
           "px-2 md:px-8 py-2",
           "bg-white dark:bg-black shadow-sm",
         )}>
+          <Link href="/">
+            Home
+          </Link>
           <Link href="/check-session">
             Session status:
             <span className={clsx("ml-2", session ? 'text-green-500' : 'text-red-500')}>
