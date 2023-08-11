@@ -12,7 +12,25 @@ const CheckSessionPage = async () => {
       'p-12'
     )}>
       <h2>Check Session</h2>
-      <pre>{session ? JSON.stringify(session) : '-'}</pre>
+      {session ? (
+        <div className="flex justify-center gap-4">
+        <dl className="min-w-24 flex flex-col gap-2">
+          <dt>Name</dt>
+          <dd>{session?.user?.name}</dd>
+          <dt>Email</dt>
+          <dd>{session?.user?.email}</dd>
+        </dl>
+        <picture className="w-24 h-24 rounded-full overflow-hidden">
+          <img
+            src={session?.user?.image ?? ''}
+            alt={session?.user?.name ?? 'Wrong source'}
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
+      </div>)
+      : (
+        <p>You are not authenticated</p>
+      )}
     </div>
   )
 }
